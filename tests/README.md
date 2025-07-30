@@ -25,13 +25,7 @@ The deterministic test model simulates a **remote island community in Kenya**, w
 - Public services such as health centers and schools
 
 The load demand profile has been simulated using the [RAMP tool](https://github.com/energy-modelling-toolkit/ramp), which generates representative profiles based on local energy use patterns and activity-based modeling.
-
-#### **Key demand characteristics**
-
-| Metric                         | Value               |
-|-------------------------------|---------------------|
-| Average daily peak power      | ~30 kW              |
-| Average daily energy use      | 486 kWh             |
+Key demand characteristics are: Average daily peak power of ~30 kW and Average daily energy use of 486 kWh.
 
 #### **Load Profile Visualization**
 
@@ -62,8 +56,10 @@ The system is designed as a fully off-grid hybrid mini-grid with the following s
 
 > *Figure: System schematic showing solar PV, battery, and diesel backup configuration.*
 
-#### **Results**
+#### **Results:**
+
 The optimal system configuration for the Kenyan island community includes an 88.7 kW solar PV array, 125.5 kWh of battery storage, and a 15.4 kW diesel generator. The model achieves a 70% renewable penetration with no lost load, meeting all demand reliably. The total Net Present Cost of the project is approximately 157 kUSD, with a Total Investment Cost 117.68 kUSD resulting in a quite high levelized cost of energy (LCOE) of 0.57 USD/kWh. Annual Solar Curtailment Share is 9.62 % of total solar production while Annual fuel consumption is around 5,078 tons of liters per year, with the generator operating at an average efficiency of 10.5 kWh/liter and a load factor of nearly 40%.
+
 ---
 
 
