@@ -12,33 +12,9 @@ using .PostProcessing: write_dispatch_to_csv, write_costs_to_csv, write_sizing_t
 # Initialize parameters and time series data
 include(joinpath(@__DIR__, "parameters_initialization.jl"))
 
-println("\n🧠 MEMORY USAGE REPORT")
-
-# Print memory usage of key inputs
-println("Parameters dictionary: $(Base.summarysize(parameters) / 1024^2) MB")
-println("Load demand data: $(Base.summarysize(load) / 1024^2) MB")
-
-if has_solar
-    println("Solar production data: $(Base.summarysize(solar_unit_production) / 1024^2) MB")
-end
-if has_wind
-    println("Wind production data: $(Base.summarysize(wind_power) / 1024^2) MB")
-end
-if has_generator && allow_partial_load
-    println("Generator efficiency curve: $(Base.summarysize(generator_efficiency_curve) / 1024^2) MB")
-end
-if allow_grid_connection
-    println("Grid cost data: $(Base.summarysize(grid_cost) / 1024^2) MB")
-    println("Grid availability matrix: $(Base.summarysize(grid_availability) / 1024^2) MB")
-    if allow_grid_export
-        println("Grid price data: $(Base.summarysize(grid_price) / 1024^2) MB")
-    end
-end
-
 # Initialize the optimization model
 println("\nInitializing the optimization model...")
 model = Model()
-println("Empty model object: $(Base.summarysize(model) / 1024^2) MB")
 
 # ========================
 # VARIABLES DEFINITION
@@ -342,7 +318,6 @@ println("Optimization constraints added successfully to the model.")
 
 # Objective Function: Minimization of NPC
 @objective(model, Min, NPC)
-println("After adding objective: $(Base.summarysize(model) / 1024^2) MB")
 
 println("Model initialized successfully")
 
@@ -365,10 +340,6 @@ set_optimizer(model, optimizer)
 # Solve the optimization problem
 @time optimize!(model)
 solution_summary(model, verbose = true)
-
-# FINAL MEMORY
-println("\n📊 Final model object (after solve): $(Base.summarysize(model) / 1024^2) MB")
-solution_summary(model, verbose=true)
 
 # Evaluate solution status
 status = termination_status(model)

@@ -262,38 +262,3 @@ if seasonality == true
 else
     S = 1
 end
-
-# Disk size function
-function file_size(path::AbstractString)
-    return round(stat(path).size / 1024^2; digits=4)  # in MB
-end
-
-println("📁 Input file sizes on disk:")
-parameters_path = joinpath(@__DIR__, "..", "inputs", "parameters.yaml")
-println("  parameters.yaml: $(file_size(parameters_path)) MB")
-println("  load.csv:        $(file_size(joinpath(@__DIR__, "..", "inputs", "load.csv"))) MB")
-
-if isfile(joinpath(@__DIR__, "..", "inputs", "solar_production.csv"))
-    println("  solar_production.csv: $(file_size(joinpath(@__DIR__, "..", "inputs", "solar_production.csv"))) MB")
-end
-if isfile(joinpath(@__DIR__, "..", "inputs", "wind_production.csv"))
-    println("  wind_production.csv:  $(file_size(joinpath(@__DIR__, "..", "inputs", "wind_production.csv"))) MB")
-end
-if isfile(joinpath(@__DIR__, "..", "inputs", "grid_cost.csv"))
-    println("  grid_cost.csv:        $(file_size(joinpath(@__DIR__, "..", "inputs", "grid_cost.csv"))) MB")
-end
-if isfile(joinpath(@__DIR__, "..", "inputs", "grid_price.csv"))
-    println("  grid_price.csv:       $(file_size(joinpath(@__DIR__, "..", "inputs", "grid_price.csv"))) MB")
-end
-if isfile(joinpath(@__DIR__, "..", "inputs", "grid_availability.csv"))
-    println("  grid_availability.csv: $(file_size(joinpath(@__DIR__, "..", "inputs", "grid_availability.csv"))) MB")
-end
-
-println("\nDiscount factor array: $(Base.summarysize(discount_factor) / 1024) KB")
-println("Seasonal weights: $(Base.summarysize(season_weights) / 1024) KB")
-
-println("Replacements arrays:")
-println("  - Solar: $(Base.summarysize(solar_replacement_years) / 1024) KB")
-println("  - Wind: $(Base.summarysize(wind_replacement_years) / 1024) KB")
-println("  - Battery: $(Base.summarysize(battery_replacement_years) / 1024) KB")
-println("  - Generator: $(Base.summarysize(generator_replacement_years) / 1024) KB")
