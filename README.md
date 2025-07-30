@@ -35,10 +35,10 @@ Each model variant (Regular, EVM, ICC, JCC) resides in a dedicated folder with t
 
 autarky/
 │
-├── RegularModel/ # Deterministic model
-├── ExpectedValueModel/ # EVM with forecast errors
-├── ICCModel/ # Individual Chance Constraints
-├── JCCModel/ # Joint Chance Constraints
+├── deterministic/ # Deterministic model
+├── expected_values/ # EVM with forecast errors
+├── icc/ # Individual Chance Constraints
+├── jcc_genz/ # Joint Chance Constraints
 │
 Each model folder contains:
 ├── src/
@@ -53,7 +53,7 @@ Each model folder contains:
 To run a model:
 
 ```bash
-cd JCCModel/src
+cd <selected model>/src
 julia main.jl
 ```
 
@@ -80,7 +80,7 @@ julia main.jl
 Autarky comes with a Streamlit web app to visualize and compare projects:
 
 ```bash
-cd Autarky App/
+cd autarky/app
 streamlit run app.py
 ```
 
@@ -101,7 +101,7 @@ Now you can explore the project via the Streamlit UI.
 - Julia ≥ 1.9
 - Packages: JuMP, Ipopt, GLPK, Distributions, YAML, etc.
 - Python ≥ 3.10 for the Streamlit app
-- Streamlit dependencies: pandas, plotly, pyyaml, etc.
+- Streamlit dependencies: pandas, plotly, matplotlib, etc.
 
 ## Citation
 This framework builds on the methods described in:
