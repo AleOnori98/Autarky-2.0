@@ -35,7 +35,7 @@ The load demand profile has been simulated using the [RAMP tool](https://github.
 
 #### **Load Profile Visualization**
 
-![Load Profile Overview](../autarky/tests/images/load_profile.png)
+![Load Profile Overview](https://github.com/AleOnori98/Autarky-2.0/blob/main/tests/images/load_profile.png)
 
 > *Figure: Hourly demand profile for a typical day in wet and dry seasons.*
 
@@ -58,7 +58,7 @@ The system is designed as a fully off-grid hybrid mini-grid with the following s
 - **Battery storage** (including round-trip efficiency, state of charge limits, and degradation)
 - **Diesel generator** (with partial load efficiency curve)
 
-![System Layout](../autarky/tests/images/system_layout.png)
+![System Layout](https://github.com/AleOnori98/Autarky-2.0/blob/main/tests/images/system_layout.png)
 
 > *Figure: System schematic showing solar PV, battery, and diesel backup configuration.*
 
