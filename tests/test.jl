@@ -20,10 +20,10 @@ using Test, Dates, Printf
 
 # List of all model folders to test
 const MODEL_FOLDERS = [
-    "Deterministic Model",
-    "Expected Values Model",
-    "ICC Model",
-    "JCC Model",
+    "autarky/deterministic",
+    "autarky/expected_values",
+    "autarky/icc",
+    "autarky/jcc_genz",
 ]
 
 # Iterate through each model and perform checks
