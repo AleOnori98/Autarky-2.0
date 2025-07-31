@@ -26,6 +26,9 @@ const MODEL_FOLDERS = [
     "autarky/jcc_genz",
 ]
 
+@info("Autarky Model Test Suite")
+@info("Starting Autarky model tests at $(now())")
+
 # Iterate through each model and perform checks
 for model in MODEL_FOLDERS
     @info("Testing model: $model")
@@ -63,3 +66,6 @@ for model in MODEL_FOLDERS
 
     """)
 end
+
+@info("All Autarky model tests completed successfully at $(now())")
+@info("You can now visualize the results in the Autarky Streamlit app as described above.")
