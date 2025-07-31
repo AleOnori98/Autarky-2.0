@@ -3,7 +3,7 @@ Test script for validating the successful execution of all Autarky optimization 
 
 This script performs the following steps for each predefined model folder:
 1. Verifies that the corresponding `main.jl` script exists.
-2. Executes the model by including `main.jl`.
+2. Executes the model by temporarily switching into its `src` folder.
 3. Checks whether the model produces output files in the `results` folder.
 
 Models tested:
@@ -26,44 +26,42 @@ const MODEL_FOLDERS = [
     "autarky/jcc_genz",
 ]
 
-@info("Autarky Model Test Suite")
+@info("AUTARKY MODEL TESTS")
 @info("Starting Autarky model tests at $(now())")
 
 # Iterate through each model and perform checks
 for model in MODEL_FOLDERS
     @info("Testing model: $model")
 
-    # Path to the main.jl file
     model_path = joinpath(@__DIR__, "..", model, "src", "main.jl")
+    results_path = joinpath(@__DIR__, "..", model, "results")
 
-    # Ensure the main.jl script exists
     @test isfile(model_path)
-    @info("Found main.jl for $model at $model_path")
 
-    # Attempt to run the model (guarded to capture runtime errors)
     try
-        @info("Running model: $model ....")
-        include(model_path)
+        @info("Running model: $model ...")
+
+        # Wrap include in a local module to isolate constants/functions
+        Core.eval(Main, :(module $(Symbol("Test_$(basename(model))"))
+            include($model_path)
+        end))
+
         @info("Successfully ran $model")
     catch e
         @error("Model $model failed to run", exception = e)
-        @test false  # Fail the test explicitly
+        @test false
     end
 
-    # Check that the model produced at least one output CSV file 
-    results_path = joinpath(@__DIR__, "..", model, "results")
     outputs = filter(f -> endswith(f, ".csv"), readdir(results_path; join=true))
-
-    @test !isempty(outputs)  # Ensure some result file exists
+    @test !isempty(outputs)
     @info("Model $model produced output files: $(join(outputs, ", "))")
-    
+
     @info("""
     To visualize these results in the Autarky Streamlit app:
 
     1. Copy the corresponding `inputs/` and `results/` folders from the `$model` directory.
     2. Paste them into your Autarky frontend under: `AutarkyApp/projects/<project_name>/`
     3. Launch the Streamlit app and navigate to the different sections to visualize and compare the results.
-
     """)
 end
 
