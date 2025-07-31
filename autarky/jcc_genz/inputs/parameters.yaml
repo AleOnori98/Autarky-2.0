@@ -12,7 +12,7 @@ project_settings:
   # Time step duration (time resolution) [hours]
   time_step_duration: 1
   # Discount rate
-  discount_rate: 0.65
+  discount_rate: 0.1
   # Currency
   currency: USD
 
@@ -34,7 +34,7 @@ optimization_settings:
   # Maximum CAPEX
   max_capex : 1000000
   # Minimum Renewable Peneration to regulate generator usage
-  min_res_share: 0.7 # annual share of total demand
+  min_res_share: 0.0 # annual share of total demand
 
   # Model connection to the national grid
   on_grid:
@@ -53,8 +53,7 @@ uncertainty_settings:
   # Probability of a daily outage (0 for no outages)
   outage_probability: 0.9
   # Probability parameter of successful islanding
-  islanding_probability: 0.7
-
+  islanding_probability: 0.9
 
 
 # TECHNO-ECONOMIC PARAMETERS
@@ -68,7 +67,7 @@ solar_pv:
   economics:
     capex: 700                  # Specific investment cost per kW
     opex: 0.02                  # Fixed O&M cost as annual share of investment cost
-    subsidy: 0.1                # Subsidy as a share of investment cost
+    subsidy: 0.0                # Subsidy as a share of investment cost
     lifetime: 20                # Lifetime of solar PV system in years
   technical:
     nominal_capacity: 1           # Nominal capacity of solar PV system in kW
@@ -107,12 +106,12 @@ wind_turbine:
 
 # Battery Parameters
 battery:
-  enabled: true               # Enable battery system  
+  enabled: true           # Enable battery system  
   allow_units: false          # Optimize units of nominal capacity (Unit Commitment)
   nominal_capacity: 1         # Nominal capacity of battery system in kWh
   economics:
     capex: 400                  # Specific investment cost per kWh
-    opex: 0.02                  # Fixed O&M cost as annual share of investment cost
+    opex: 0.015                  # Fixed O&M cost as annual share of investment cost
     lifetime: 10                # Expected lifetime of battery system in years
   operation:
     charge_time: 5            # Battery charging time in hours
@@ -131,7 +130,7 @@ generator:
   allow_units: false          # Optimize units of nominal capacity (Unit Commitment)
   nominal_capacity: 1         # Nominal capacity of backup generator in kW
   nominal_efficiency: 0.3     # Generator nominal efficiency (full load)
-  allow_partial_load: false    # Enable partial load effect (sample generator efficiency curve)
+  allow_partial_load: true    # Enable partial load effect (sample generator efficiency curve)
   n_samples: 10               # Number of samples for the generator efficiency curve (if allow_partial_load: true)
   economics:
     capex: 350                  # Specific investment cost per kW
@@ -139,7 +138,7 @@ generator:
     lifetime: 15                # Lifetime of backup generator in years
   fuel:
     type: "diesel"                # Fuel type (e.g., diesel, gasoline, etc.)
-    fuel_lhv: 10                  # Fuel lower heating value in kWh/l
+    fuel_lhv: 10.5                # Fuel lower heating value in kWh/l
     fuel_cost: 1.3                # Fuel cost per liter
     fuel_consumption_limit: false # Bool to enable fuel consumption constraint
     max_fuel_consumption: 10000   # Max annual fuel consumption in liters
