@@ -51,7 +51,7 @@ The system is designed as a fully off-grid hybrid mini-grid with the following s
 - **Battery storage** (including round-trip efficiency, state of charge limits, and degradation)
 - **Diesel generator** (with partial load efficiency curve)
 
-![System Layout](https://github.com/AleOnori98/Autarky-2.0/blob/main/tests/images/system_layout_1.png)
+![System Layout](https://github.com/AleOnori98/Autarky-2.0/blob/main/tests/images/system_layout.png)
 
 > *Figure: System schematic showing solar PV, battery, and diesel backup configuration.*
 
@@ -97,7 +97,7 @@ The model incorporates **solar PV**, **battery storage**, and a **diesel generat
 
 ---
 
-#### 📊 Results Overview
+#### Results Overview
 
 The expected values formulation provides a more resilient energy strategy by accounting for likely outages and variability. In this expected values scenario, the model achieves 100% renewable penetration using a 75.7 kW solar PV array and 137.3 kWh of battery storage, without requiring any generator capacity. The system successfully relies on the grid for backup during forecasted outages, importing approximately 70.7 MWh annually. The Net Present Cost is 197.39 kUSD and Total Annual Grid Cost 7.07 kUSD/year, with a significantly lower LCOE of 0.12 USD/kWh, thanks to optimized grid use and a well-sized battery reserve (~20.16 MWh annually).
 
