@@ -1,5 +1,5 @@
 ---
-title: 'Autarky: A Modular Optimization Platform for Distributed Energy Systems under Uncertainty'
+title: 'XXXX'
 tags:
   - energy systems
   - optimization
@@ -8,6 +8,7 @@ tags:
   - mini-grids
   - chance constraints
   - decentralized electrification
+  - ....
 authors:
   - name: XXXX
     orcid: XXXX
@@ -22,9 +23,7 @@ bibliography: paper.bib
 
 # Summary
 
-Autarky is a modular, open-source modeling platform for the techno-economic optimization of distributed energy systems under uncertainty. Built in Julia using the JuMP modeling language, Autarky allows users to define, simulate, and optimize hybrid mini-grid architectures with configurable levels of modeling complexity, including deterministic and probabilistic formulations. It supports linear programming (LP), expected value models, and individual and joint chance constraints (ICC/JCC) to account for forecast uncertainty and reliability targets.
-
-Designed for flexibility and accessibility, Autarky features a front-end web interface for parameter input, result visualization, and comparative analysis of planning scenarios. The backend implements a suite of optimization models that are easily extendable and tailored for energy access planning, particularly in Sub-Saharan Africa and other contexts with unreliable or no main grid access.
+Autarky is .....
 
 # Statement of need
 
@@ -41,14 +40,7 @@ Autarky is already used in ongoing research projects and educational contexts, i
 
 Autarky allows users to:
 
-- Configure decentralized energy systems with solar, batteries, diesel gensets, and grid connection options.
-- Upload time series data or use APIs (e.g., PVGIS) for renewable potential.
-- Define seasonal representative periods for long-term simulations.
-- Solve deterministic, expected value, and probabilistic optimization problems.
-- Visualize key outputs such as dispatch, capacity sizing, and costs.
-- Compare scenarios (e.g., low-cost vs. high-reliability solutions) via a web dashboard.
-
-All formulations share a common YAML-based input schema and JSON result format for interoperability and reproducibility.
+- ....
 
 # Research applications
 
@@ -60,8 +52,12 @@ Autarky has enabled:
 
 Ongoing work includes extending the platform to swarm-grids and tariff design using complementarity constraints under uncertainty.
 
+...
+
 # Acknowledgements
 
-XXXX
+....
 
 # References
+
+....
